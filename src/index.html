@@ -1,0 +1,121 @@
+<html>
+<head>
+	<title>index.html</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="utf-8">
+</head>
+<body>
+	 <!-- Swiper -->
+    <div class="swiper-container">  
+        <div class="swiper-wrapper">
+            <div class="swiper-slide first">
+                <div id="audio_btn" class="off" style="display: block;">
+                    <audio loop src="./resources/MeghanTrainor-AllAboutThatBass.mp3" id="media" autoplay="autoplay"></audio>
+                </div>
+                <img class="ani toppen" src="images/bi1.png" swiper-animate-effect="bounceInLeft" swiper-animate-duration="3s" swiper-animate-delay="0.3s" >
+         	<!-- 	<p class="ani person" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">简历</p>
+ -->
+             <!--    <p class="ani work" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.8s">
+         			求职Web前端应用开发工程师
+                </p>
+ -->            <img class="ani resume" src="images/resume.png" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.5s">
+                <img class="ani downpen" src="images/bi2.png" swiper-animate-effect="bounceInRight" swiper-animate-duration="3s" swiper-animate-delay="0.3s">
+            
+            </div>
+        <!-- 第二页 -->
+            <div class="swiper-slide second">
+            	 <div id="audio_btn" class="off" style="display: block;">
+                     <audio loop src="./resources/MeghanTrainor-AllAboutThatBass.mp3" id="media" autoplay="autoplay"></audio>
+                </div>
+
+                <p class="ani me" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">me</p>
+
+            	<p class="ani circle" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">		
+         		</p>	
+                <div class="ani introduce">
+                    <div class="ani name"  swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">姓名：陶欣钰</div>
+             		<div class="ani school"  swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.8s">毕业院校：四川师范大学</div>
+             		<div class="ani major"  swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="1.3s">专业：电子商务</div>
+             		<div class="ani tel"  swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="1.8s">电话：13438369225</div>
+             		<div class="ani email"  swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="2.3s">邮箱：13438369225@163.com</div>
+                </div>
+            </div>
+        <!-- 第三页 -->
+            <div class="swiper-slide thrid">
+                 <div id="audio_btn" class="off" style="display: block;">
+                      <audio loop src="./resources/MeghanTrainor-AllAboutThatBass.mp3" id="media" autoplay="autoplay"></audio>
+                </div>
+            		  <p class="ani me" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">skill</p>
+                      <div class="top">
+                		<div class="left">
+                			<img class="ani html5" swiper-animate-effect="rollIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.8s" src="images/html5.png">
+                		
+                			<img class="ani css3" swiper-animate-effect="rollIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.3s" src="images/css3.png">
+                		
+                			<img src="images/js.png" class="ani js" swiper-animate-effect="rollIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.8s">
+                		</div>
+                		
+                		<div class="right">	
+    	            		<img src="images/nodejs.jpeg" class="ani nodejs" swiper-animate-effect="rollIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.3s">
+
+    	            		<img src="images/bootstrap.jpg" class="ani bootstrap" swiper-animate-effect="rollIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.8s">
+
+    	            		<img src="images/ps.jpg" class="ani sass" swiper-animate-effect="rollIn" swiper-animate-duration="1.5s" swiper-animate-delay="3.3s">
+                		</div>
+                    </div>
+					<div class="bottom">
+            			<img src="images/angularjs.png" class="ani angularjs" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="3.8s">
+            		</div>	
+            </div>
+         <!-- 第四页 -->
+            <div class="swiper-slide fourth">
+                 <div id="audio_btn" class="off" style="display: block;">
+                    <audio loop src="./resources/MeghanTrainor-AllAboutThatBass.mp3" id="media" autoplay="autoplay"></audio>
+                </div>
+            	 <p class="ani me" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">I'm coming</p>
+               
+               <div class="middle">
+                    <img src="images/mmqrcode.png" class="mmqrcode ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">
+
+                    <button id="enter">进入体验</button>
+                </div>
+                
+            		<img class="ani goodstudy" src="images/hard.png" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">
+
+         		
+            </div>
+        </div>
+    </div>
+
+
+    <div id="mainContent">
+    	<div id="header">       
+            <button id="scan">scan二维码</button>
+            <button id="photo">照片</button>   
+        </div>
+		<div id="wrapper">
+			<div id="scroller">
+				<ul></ul>
+			</div>
+		</div>
+
+		<div id="footer">
+			<div id="skill">
+				技能
+			</div>
+
+			<div id="work">
+				经历
+			</div>
+
+			<div id="project">项目</div>
+
+			<div id="me">我</div>
+
+		</div>
+    </div>
+
+	<script type="text/javascript"  src="js/index.js"></script>
+</body>
+</html>

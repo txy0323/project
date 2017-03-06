@@ -1,0 +1,198 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+#footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px; }
+  #footer div {
+    text-align: center;
+    flex: 1;
+    font-size: 30px; }
+
+#audio_btn {
+  width: 60px;
+  height: 60px;
+  background: url(../images/normalmusic.svg) no-repeat;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.off {
+  transform-style: preserve-3d;
+  animation-name: edg;
+  animation-duration: 0.80s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; }
+
+@keyframes edg {
+  0% { }
+  50% {
+    transform: rotateZ(180deg); }
+  100% {
+    transform: rotateZ(360deg); } }
+
+.first {
+  width: 100%;
+  height: 100%;
+  background: url(../images/1.jpg) no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.toppen {
+  display: block;
+  width: 100%;
+  height: 30%; }
+
+.downpen {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%; }
+
+.resume {
+  width: 80%;
+  height: 30%;
+  margin: 5% 10%; }
+
+.second {
+  background: url(../images/1.jpg) no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.me {
+  margin: 5% auto;
+  width: 80%;
+  height: 8%;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+  text-align: center;
+  margin-left: 10%;
+  font-weight: bold;
+  font-family: '微软雅黑';
+  font-size: 26px; }
+
+.circle {
+  width: 52%;
+  height: 30%;
+  border: 4px solid black;
+  border-radius: 50%;
+  margin: 3% 0; }
+
+.introduce {
+  text-align: center; }
+
+.name, .school, .tel, .email, .major {
+  font-size: 20px;
+  height: 6%;
+  font-weight: bold;
+  margin: 3% auto; }
+
+.thrid {
+  background: url(../images/1.jpg) no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.skill {
+  margin: 5% auto;
+  width: 80%;
+  height: 8%;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+  text-align: center;
+  margin-left: 10%;
+  font-weight: bold;
+  font-family: '微软雅黑';
+  font-size: 26px; }
+
+.top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+
+.left {
+  float: left;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.right {
+  float: left;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.bottom {
+  margin-top: 4%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.html5, .css3, .js {
+  width: 55%;
+  height: 15%;
+  display: block;
+  margin: 5% auto; }
+
+.nodejs, .bootstrap, .sass {
+  width: 55%;
+  height: 15%;
+  display: block;
+  margin: 5% auto; }
+
+.angularjs {
+  width: 90%;
+  display: block;
+  height: 12%; }
+
+.fourth {
+  background: url(../images/1.jpg) no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
+.mmqrcode {
+  width: 50%;
+  height: 28%;
+  margin: 5% 10%; }
+
+#enter {
+  width: 20%;
+  height: 8%; }
+
+.goodstudy {
+  width: 350px;
+  height: 350px;
+  margin-left: 20px;
+  display: block; }

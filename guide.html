@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			#close {
+				position: absolute;
+				width: 160px;
+				left: 50%;
+				margin-left: -80px;
+				bottom: 15%;
+				padding: 10px;
+				color: #fff;
+				border-color: #fff;
+			}
+			.item-logo {
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			.item-logo a {
+				width: 200px;
+				height: 200px;
+				display: block;
+				border: 1px solid #FFFFFF;
+				border-color: rgba(255, 255, 255, 0.5);
+				text-align: center;
+				line-height: 200px;
+				border-radius: 50%;
+				font-size: 40px;
+				color: #fff;
+				position: absolute;
+				top: 15%;
+				left: 50%;
+				margin-left: -100px;
+			}
+			.animate {
+				position: absolute;
+				left: 0;
+				bottom: 15%;
+				width: 100%;
+				color: #fff;
+				display: -moz-box;
+			}
+			.animate h2 {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			.animate li {
+				width: 50%;
+				height: 30px;
+				line-height: 30px;
+				list-style: none;
+				font-size: 16px;
+				text-align: right;
+			}
+			.animate li:nth-child(3) {
+				text-align: left;
+				float: right;
+			}
+			.animated {
+				-webkit-animation-duration: 1s;
+				-webkit-animation-play-state: paused;
+				-webkit-animation-fill-mode: both;
+			}
+			.guide-show .bounceInTop{
+				-webkit-animation-name: bounceInTop;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 1s;
+				display: block;
+			}
+			.guide-show .bounceInDown {
+				-webkit-animation-name: bounceInDown;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 1s;
+				display: block;
+			}
+			.guide-show .bounceInLeft {
+				-webkit-animation-name: bounceInLeft;
+				display: block;
+				-webkit-animation-play-state: running;
+			}
+			.guide-show .bounceInRight {
+				-webkit-animation-name: bounceInRight;
+				display: block;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 0.5s;
+			}
+			.guide-show .fadeIn {
+				-webkit-animation-name: fadeIn;
+				display: block;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 0.5s;
+			}
+			.guide-show .fadeOut {
+				-webkit-animation-name: fadeOut;
+				display: block;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 0.5s;
+			}
+
+			@-webkit-keyframes bounceInDown {
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, -3000px, 0);
+					transform: translate3d(0, -3000px, 0);
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 25px, 0);
+					transform: translate3d(0, 25px, 0);
+				}
+				75% {
+					-webkit-transform: translate3d(0, -5px, 0);
+					transform: translate3d(0, -5px, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(0, 3px, 0);
+					transform: translate3d(0, 3px, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			
+			@-webkit-keyframes bounceInTop {
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, 3000px, 0);
+					transform: translate3d(0, 3000px, 0);
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, -25px, 0);
+					transform: translate3d(0, -25px, 0);
+				}
+				75% {
+					-webkit-transform: translate3d(0, 5px, 0);
+					transform: translate3d(0, 5px, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(0, -3px, 0);
+					transform: translate3d(0, -3px, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			
+			@-webkit-keyframes bounceInLeft {
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(-3000px, 0, 0);
+					transform: translate3d(-3000px, 0, 0);
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: translate3d(25px, 0, 0);
+					transform: translate3d(25px, 0, 0);
+				}
+				75% {
+					-webkit-transform: translate3d(-10px, 0, 0);
+					transform: translate3d(-10px, 0, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(5px, 0, 0);
+					transform: translate3d(5px, 0, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			@-webkit-keyframes bounceInRight {
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(3000px, 0, 0);
+					transform: translate3d(3000px, 0, 0);
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: translate3d(-25px, 0, 0);
+					transform: translate3d(-25px, 0, 0);
+				}
+				75% {
+					-webkit-transform: translate3d(10px, 0, 0);
+					transform: translate3d(10px, 0, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(-5px, 0, 0);
+					transform: translate3d(-5px, 0, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			@-webkit-keyframes fadeIn{
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 0.5;
+				}
+				100%{
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes fadeOut{
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0.5;
+				}
+				100%{
+					opacity: 0;
+				}
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+			.me{
+				margin:5% auto;
+				width:80%;
+				height:40px;
+				line-height:34px;
+				border-top:3px solid black;
+				border-bottom:3px solid black;
+				text-align:center;
+				margin-left:10%;
+				font-weight:bold;
+				font-family:'微软雅黑';
+				font-size:16px;
+			}
+			.circle{
+				width:52%;
+				height:30%;
+				border:3px solid black;
+				border-radius:50%;
+				margin:4% auto;
+				background:url(images/timg.jpg) no-repeat;
+				background-size: 100% 100%;
+			}
+			.name,.age,.tel,.email,.major{
+				font-size:16px;
+				height:6%;
+				width: 80%;
+				text-align: center;
+				font-weight:bold;
+				margin:3% auto;
+			}
+			.name{
+				margin-top:8%;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+			}
+			.ercode{
+				width: 35%;
+				height:20%;
+				float: left;
+				margin: 10%;
+				overflow: hidden;
+			}
+			.wawa{
+				overflow: hidden;
+				width: 35%;
+				height:24%;
+				float: left;
+				margin-top:7%;
+			}
+			.study{
+				width: 80%;
+				height:42%;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#audio_btn{
+				width:60px;
+				height:60px;
+				background:url(images/normalmusic.svg) no-repeat;
+				position:absolute;
+				right:0;
+				top:0; 
+			}
+			
+			.off{
+				transform-style: preserve-3d;
+				animation-name: edg;
+				animation-duration: 0.80s;
+				animation-timing-function: linear;
+				animation-iteration-count:infinite;
+				z-index: 99;
+			}
+						
+			@keyframes edg{
+				0%{
+				}
+				50%{
+					transform:rotateZ(180deg);
+				}
+				100%{
+					transform:rotateZ(360deg) ;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="slider" class="mui-slider mui-fullscreen" style="background-color: black;">
+			<div class="mui-slider-group">
+				<!-- 第一张 -->
+				<div class="mui-slider-item" style="background-image:url(images/back.jpg); background-size: 100% 100%;">
+					<div id="audio_btn" class="off" style="display: block;">
+                    	
+					</div>
+					<div class="item-logo">	
+						<div class="guide-show">
+							<img class="animated bounceInRight" src="images/bi1.png" style="height:120px;">
+						</div>
+						<div class="guide-show">
+							<img class="animated fadeIn" src="images/resume.png" style="width:80%; margin:0 auto;">
+						</div>
+						<div class="guide-show">
+							<img class="animated bounceInLeft" src="images/bi2.png" style="height:120px;position: absolute;bottom:0;">
+						</div>
+					</div>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item" style="background-image:url(images/back.jpg); background-size: 100% 100%;">
+					<div id="audio_btn" class="off" style="display: block;"></div>
+					<div class="item-logo">
+						<div id="tips-2" class="mui-hidden" style="height:100%;">
+							<div class="animated fadeIn me">me</div>
+							<div class="animated bounceInDown circle"></div>
+							<div class="animated bounceInTop name">姓名：陶欣钰</div>
+							<div class="animated bounceInTop age">年龄：21</div>
+							<div class="animated bounceInTop major">专业：电子商务</div>
+							<div class="animated bounceInTop tel">电话：13438369225</div>
+							<div class="animated bounceInTop email">邮箱：13438369225@163.com</div>
+						</div>
+					
+					</div>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<div id="audio_btn" class="off" style="display: block;"></div>
+					<div class="item-logo" style="background-image:url(images/back.jpg); background-size: 100% 100%;">
+						<div id="tips-3" class="mui-hidden content" style="height:100%;">
+							<li class="animated fadeIn ercode"><img src="images/mmqrcode.png"/></li>
+							<li class="animated fadeIn wawa"><img src="images/wawa.png"/></li>
+							<li class="animated bounceInTop study"><img src="images/hard.png"/></li>
+						</div>
+						<div class="animate bounceInTop" style="margin-top: 10px;">
+							<button id='close' style="color: #f0ad4e;border-color:#f0ad4e;" class="mui-btn mui-btn-warning mui-btn-outlined">立即体验</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+		//不是a链接
+			mui.back = function() {};
+			//是否全屏
+			mui.plusReady(function() {
+				if(mui.os.ios){
+					plus.navigator.setFullscreen(true);
+				}
+				plus.navigator.closeSplashscreen();
+				startPlay();
+			});
+			//立即体验按钮点击事件
+			document.getElementById("close").addEventListener('tap', function(event) {
+				/*plus.storage.setItem("lauchFlag", "true");*/
+				plus.navigator.setFullscreen(false);
+				plus.webview.currentWebview().close();
+			}, false);
+			//图片切换时，触发动画
+			document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+			 	//注意slideNumber是从0开始的；
+			 	var index = event.detail.slideNumber+1;
+			 	if(index==2||index==3){
+			 		var item = document.getElementById("tips-"+index);
+			 		if(item.classList.contains("mui-hidden")){
+			 			item.classList.remove("mui-hidden");
+			 			item.classList.add("guide-show");
+			 		}
+			 	}
+			});
+			
+			var p = null;
+			function startPlay() {
+				if ( plus.audio == undefined ) {
+					alert( "Device not ready!" );
+				}
+				p = plus.audio.createPlayer("resources/MeghanTrainor-AllAboutThatBass.mp3");
+				p.play( function () {
+					alert( "Audio play success!" ); 
+				}, function ( e ) {
+					alert( "Audio play error: " + e.message ); 
+				} ); 
+			}
+			function stopPlay() {
+				p.stop();
+			}
+			
+			
+			/*document.getElementById("audio_btn").addEventListener('tap', function(event) {
+				startPlay()
+			}, false);*/
+			
+			
+			var z = 1;
+      		mui('.mui-slider-item').on('tap','.off',function(){
+				 	if(z===1){
+				 		stopPlay();	 		
+				 		z=0;
+				 	}else{
+						startPlay();
+						z=1;
+				 	}
+      			});
+      		
+      		/*var z = 1;
+      		if(z===1){
+      			z=0;
+      			alert(z);
+      		}else{
+      			alert(z);
+      			mui('.mui-slider-item').on('tap','.off',function(){
+					stopPlay();
+      		}); 
+      		}
+      		*/
+      	
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,86 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"images/2.jpg",
+			"images/1.jpg",
+			"images/3.jpg",
+			"images/resume.png",
+			"images/mmqrcode.png",
+			"js/mui.zoom.js",
+			"js/mui.previewimage.js",
+			"images/commonjs.png",
+			"images/html5.jpg",
+			"images/es6.png",
+			"images/AMD.jpg",
+			"images/zepto.jpg",
+			"images/angularjs.jpg",
+			"images/jquery.jpg",
+			"images/react.jpg",
+			"images/MUI.png",
+			"images/logo-swiper.png",
+			"images/iscroll.jpg",
+			"images/hbuilder.jpg",
+			"images/bootstrap.jpg",
+			"images/nodejs.jpeg",
+			"images/chuanshihui.jpg",
+			"images/shude.jpg",
+			"images/sublime.jpg",
+			"images/DW.jpg",
+			"images/ps.jpg",
+			"images/shudehui.jpg",
+			"images/chuanshi.jpg",
+			"images/php.jpg",
+			"images/JS.jpg",
+			"images/CSS3.jpg",
+			"fonts/iconfont.css",
+			"fonts/iconfont.woff",
+			"images/page.png",
+			"images/sql.jpg",
+			"images/hcj.jpg",
+			"images/es.png",
+			"images/js1.jpg",
+			"images/hybrid.jpg",
+			"images/ex.jpg",
+			"images/wechat1.jpg",
+			"images/rigiste.png",
+			"images/list.png",
+			"images/index.png",
+			"images/ME.png",
+			"images/me.jpg"
+		],
+		"refer": [
+			"detail.html",
+			"guide.html"
+		]
+	},
+	"detail.html": {
+		"resources": [
+			"images/2.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"images/1.jpg",
+			"css/mui.min.css",
+			"images/3.jpg",
+			"images/mmqrcode.png"
+		]
+	},
+	"guide.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/back.jpg",
+			"images/bi2.png",
+			"images/resume.png",
+			"images/bi1.png",
+			"images/mmqrcode.png",
+			"images/wawa.png",
+			"images/hard.png",
+			"resources/MeghanTrainor-AllAboutThatBass.mp3",
+			"images/normalmusic.svg",
+			"images/timg.jpg"
+		]
+	}
+}

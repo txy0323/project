@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+   	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+   	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css"/>
+   	<title></title>
+    <style>
+		*{
+			-webkit-user-select: none;
+		}
+		html,body{
+			margin: 0px;
+			padding: 0px;
+			height: 100%;
+		}
+		#bcid {
+			background:#0F0;
+			height:480px;
+			width:360px;
+		}
+		.title {
+			margin:10px 15px 10px;
+			color: #000000;
+			font-size: 16px;
+			text-align: center;
+			font-family: "微软雅黑";
+		}
+		.mui-pull-left{
+			margin:8px 8px 0px;
+		}
+		.intro{
+			margin-bottom: 3px;
+		}
+		.introspan{
+			float: left; 
+			font-size: 14px;
+			margin-top: 6px;
+			margin-left: 10px;
+		}
+		.mui-card-footer{
+			overflow: hidden;
+		}
+		.more{
+			display: block;
+			float: right;
+			padding:6px 10px;
+		}
+		.mui-table-view .mui-table-view-cell{
+			font-size: 14px;
+		}
+		.mui-table-view .mui-table-view-cell i{
+			font-size: 24px;
+			margin-right: 3%;
+			display: block;
+			float: left;
+		
+		}
+		.mui-pull-left{
+			border-radius: 20%;
+		}
+		.mui-ellipsis{
+			font-size: 18px;
+			color: mediumpurple;
+		}
+		.mui-media-body{
+			font-size: 16px;
+			margin-top: 1.5%;
+		}
+		.mui-card-media{
+			overflow: hidden;
+		}
+		.circle{
+			width:40%;
+			height:80%;
+			margin:4% auto;
+			border-radius: 50%;
+			border: 0px solid red;
+			background: url(images/ME.png) repeat;
+			background-size: 100% 100%;
+		}
+		.titlehaed{
+			height:30px;
+			line-height:30px;
+			text-align: center;
+			font-size: 16px;
+		}
+		
+		.mui-preview-image.mui-fullscreen {
+			position: fixed;
+			z-index: 20;
+			background-color: #000;
+		}
+		.mui-preview-header,
+		.mui-preview-footer {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			z-index: 10;
+		}
+		.mui-preview-header {
+			height: 44px;
+			top: 0;
+		}
+		.mui-preview-footer {
+			height: 50px;
+			bottom: 0px;
+		}
+		.mui-preview-header .mui-preview-indicator {
+			display: block;
+			line-height: 25px;
+			color: #fff;
+			text-align: center;
+			margin: 15px auto 4;
+			width: 70px;
+			background-color: rgba(0, 0, 0, 0.4);
+			border-radius: 12px;
+			font-size: 16px;
+		}
+		.mui-preview-image {
+			display: none;
+			-webkit-animation-duration: 0.5s;
+			animation-duration: 0.5s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+		}
+		.mui-preview-image.mui-preview-in {
+			-webkit-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+		.mui-preview-image.mui-preview-out {
+			background: none;
+			-webkit-animation-name: fadeOut;
+			animation-name: fadeOut;
+		}
+		.mui-preview-image.mui-preview-out .mui-preview-header,
+		.mui-preview-image.mui-preview-out .mui-preview-footer {
+			display: none;
+		}
+		.mui-zoom-scroller {
+			position: absolute;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			-webkit-backface-visibility: hidden;
+		}
+		.mui-zoom {
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		.mui-slider .mui-slider-group .mui-slider-item img {
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+		.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+			width: 100%;
+		}
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+			display: inline-table;
+		}
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.mui-preview-loading {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		.mui-preview-loading.mui-active {
+			display: block;
+		}
+		.mui-preview-loading .mui-spinner-white {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -25px;
+			margin-top: -25px;
+			height: 50px;
+			width: 50px;
+		}
+		.mui-preview-image img.mui-transitioning {
+			-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+			transition: transform 0.5s ease, opacity 0.5s ease;
+		}
+		@-webkit-keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@-webkit-keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+		p img {
+			max-width: 100%;
+			height: auto;
+		}
+    </style>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+   	
+      	mui.plusReady(function(){
+      		mui(".mui-table-view").on("tap",'.mui-table-view-cell',function(){
+      			var detailId = this.getAttribute('id');
+      			mui.openWindow({
+      				id:'detail',
+      				url:'detail.html',
+      				extras:{
+      					detaild:detailId
+      				}
+      			});
+      			
+      		});
+      	
+			mui.openWindow({
+  				id:'guide',
+  				url:'guide.html',
+  				show: {
+						aniShow: 'none'
+					},
+				waiting: {
+					autoShow: false
+				}
+  			});
+
+      		
+			var scan = null;
+			function onmarked( type, result ) {
+				var text = '未知: ';
+				switch(type){
+					case plus.barcode.QR:
+					text = 'QR: ';
+					break;
+					case plus.barcode.EAN13:
+					text = 'EAN13: ';
+					break;
+					case plus.barcode.EAN8:
+					text = 'EAN8: ';
+					break;
+				}
+				alert( text+result );
+			}
+			function startRecognize() {
+				scan = new plus.barcode.Barcode('bcid');
+				scan.onmarked = onmarked; 
+			}
+			function startScan() {
+				scan.start();
+		
+			}
+			function cancelScan() {
+				scan.cancel();
+				
+			}
+			function setFlash() {
+				scan.setFlash();
+				
+			}
+      	
+      	mui('.button').on('tap','.create',function(){
+				startRecognize();
+      		}); 
+      		
+      	mui('.button').on('tap','.start',function(){
+				startScan();
+      		}); 
+      		
+      	mui('.button').on('tap','.cancel',function(){
+				cancelScan() ;
+      		}); 
+      		
+      	mui('.button').on('tap','.open',function(){
+				setFlash() ;
+      		}); 
+      	
+	
+      		// 拍照
+      		function captureImage(){
+				var cmr = plus.camera.getCamera();
+				var res = cmr.supportedImageResolutions[0];
+				var fmt = cmr.supportedImageFormats[0];
+				console.log("Resolution: "+res+", Format: "+fmt);
+				cmr.captureImage( function( path ){
+						alert( "Capture image success: " + path );  
+					},
+					function( error ) {
+						alert( "Capture image failed: " + error.message );
+					},
+					{resolution:res,format:fmt}
+				);
+			}
+      		
+      		mui('.mui-bar-nav').on('tap','.mui-icon-camera',function(){
+				captureImage();
+      		}); 		
+      	});
+    </script>
+</head>
+<body>
+	
+	<div id="mainContent">
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon iconfont icon-jineng"></span>
+				<span class="mui-tab-label">技能</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon iconfont icon-biyeyuanxiao"></span>
+				<span class="mui-tab-label">经历</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon iconfont icon-xiangmu"></span>
+				<span class="mui-tab-label">项目</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+	
+		<div class="mui-content">		
+		<!--第一个页面-->
+			<div id="tabbar" class="mui-control-content mui-active">
+					<header class="mui-bar mui-bar-nav">
+						<span class="mui-icon-extra mui-icon-extra-sweep"></span>
+						<span class="mui-icon mui-icon-camera"></span>
+						<h1 class="mui-title">skill</h1>
+					</header>		
+				<!--基本技能-->
+					<div class="title" style="margin-top:54px;">
+						基本技能
+					</div>
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/hcj.jpg"/>
+					            <div class="mui-media-body"> 
+					                	HTML,CSS,JS
+					            </div>
+					            <p class='mui-ellipsis'>★★★★★</p>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/jquery.jpg">
+					            <div class="mui-media-body"> 
+					                	Jquery
+					                <p class='mui-ellipsis'>★★★★★</p>
+					            </div>
+					        </a>
+					    </li>		
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/ps.jpg">
+					            <div class="mui-media-body"> 
+					                	PS
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>			   
+					</ul>
+				<!--规范-->
+					<div class="title">
+						规范
+					</div>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/commonjs.png">
+					            <div class="mui-media-body">
+					                CommonJS
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/js1.jpg">
+					            <div class="mui-media-body">
+					                AMD/CMD
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/es.png">
+					            <div class="mui-media-body">
+					               	 ES5/ES6
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>		     
+					</ul>	
+				<!--框架-->
+					<div class="title">
+						框架
+					</div>
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/jquery.jpg">
+					            <div class="mui-media-body"> 
+					                	Jquery/JqueryEasyUI
+					                <p class='mui-ellipsis'>★★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/zepto.jpg">
+					            <div class="mui-media-body">
+					               	Zepto
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/angularjs.jpg">
+					            <div class="mui-media-body">
+					                AngularJs
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					     <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/bootstrap.jpg">
+					            <div class="mui-media-body">
+					                BootStrap/Mui
+					                <p class='mui-ellipsis'>★★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/react.jpg">
+					            <div class="mui-media-body">
+					                React
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/ex.jpg">
+					            <div class="mui-media-body">
+					               Express
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					</ul>
+				<!--类库-->
+					<div class="title">
+						类库
+					</div>
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/logo-swiper.png">
+					            <div class="mui-media-body"> 
+					                	Swiper
+					                <p class='mui-ellipsis'>★★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/iscroll.jpg">
+					            <div class="mui-media-body">
+					               Iscroll
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					</ul>
+	
+				<!--功能开发-->
+					<div class="title">
+						功能开发
+					</div>
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/page.png">
+					            <div class="mui-media-body"> 
+					                	页面布局：Flex/Fixed/Fulid/Responsive
+					                <p class='mui-ellipsis'>★★★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/JS.jpg">
+					            <div class="mui-media-body">
+					               		原生JS
+					                <p class='mui-ellipsis'>★★★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/wechat1.jpg">
+					            <div class="mui-media-body">
+					               		微信APP
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/hybrid.jpg">
+					            <div class="mui-media-body">
+					               		HybridApp
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>	    
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/nodejs.jpeg">
+					            <div class="mui-media-body"> 
+					                	后台语言：Nodejs、php
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/sql.jpg">
+					            <div class="mui-media-body">
+					               		后台数据库
+					                <p class='mui-ellipsis'>★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					</ul>	
+				<!--工具-->
+					<div class="title">
+						工具
+					</div>
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/DW.jpg">
+					            <div class="mui-media-body">
+					             	 DW
+					                <p class='mui-ellipsis'>★★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					     <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/hbuilder.jpg">
+					            <div class="mui-media-body">
+					             	 HBuilder
+					                <p class='mui-ellipsis'>★★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					     <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="images/sublime.jpg">
+					            <div class="mui-media-body">
+					             	 Sublime Text 3
+					                <p class='mui-ellipsis'>★★★★★</p>
+					            </div>
+					        </a>
+					    </li>
+					</ul>	
+				</div>
+						
+		<!--第二个页面-->
+
+		<div id="tabbar-with-chat" class="mui-control-content">
+			<header class="mui-bar mui-bar-nav">
+				<span class="mui-icon-extra mui-icon-extra-sweep"></span>
+				<span class="mui-icon mui-icon-camera"></span>
+				<h1 class="mui-title">experience</h1>
+			</header>
+		<!--高中-->
+			<div class="mui-card cardone" style="margin-top:64px;">
+				<div class="mui-card-header mui-card-media">
+					<img class="mui-pull-left" src="images/shudehui.jpg" width="36px" height="36px" />
+					<h4 style="margin-top:3%;">树德中学</h4>
+					<p class="intro">学校始建于1946年，师范类院校中...</p>
+				</div>
+				<div class="mui-content-padded mui-card-content" style="margin:0 10px;">
+					<p><img src="images/shude.jpg" data-preview-src="" data-preview-group="1" /></p>
+				</div>
+				<div class="mui-card-footer">
+					<span class="introspan">毕业于 January 18, 2016</span>
+					<a class="more">Read more</a>
+				</div>
+			</div>
+		<!--大学-->
+			<div class="mui-card cardone">
+				<div class="mui-card-header mui-card-media">
+					<img class="mui-pull-left" src="images/chuanshihui.jpg" width="36px" height="36px" />
+					<h4 style="margin-top:3%;">四川师范大学</h4>
+					<p class="intro">学校始建于1946年</p>
+				</div>
+				<div class="mui-content-padded mui-card-content" style="margin:0 10px;">
+					<p><img src="images/chuanshi.jpg" data-preview-src="" data-preview-group="1" /></p>			
+				</div>
+				<div class="mui-card-footer">
+					<span class="introspan">毕业于 January 18, 2016</span>
+					<a class="more">Read more</a>
+				</div>
+			</div>
+		</div>
+			
+		<!--第三个页面-->		
+			<div id="tabbar-with-contact" class="mui-control-content">
+				<header class="mui-bar mui-bar-nav">
+					<span class="mui-icon-extra mui-icon-extra-sweep"></span>
+					<span class="mui-icon mui-icon-camera"></span>
+					<h1 class="mui-title">project</h1>
+				</header>
+				<div class="mui-card" style="margin:64px 8px 15px;">
+					<div class="mui-card-header titlehaed">个人网站</div>
+					<div class="mui-content-padded mui-card-content">
+						<p><img style="height:60vw"; src="images/index.png" data-preview-src="" data-preview-group="1" /></p>			
+					</div>
+					<div class="mui-card-footer"></div>
+				</div>
+				<div class="mui-card" style="margin:0px 8px 15px;">
+					<div class="mui-card-content mui-content-padded">
+						<p><img style="height:60vw"; src="images/rigiste.png" data-preview-src="" data-preview-group="1" /></p>			
+					</div>
+					<div class="mui-card-content mui-content-padded">
+						<p><img style="height:60vw"; src="images/list.png" data-preview-src="" data-preview-group="1" /></p>			
+					</div>
+					<div class="mui-card-footer"></div>
+				</div>
+			</div>
+				
+		<!--第四个页面-->		
+			<div id="tabbar-with-map" class="mui-control-content">
+				<header class="mui-bar mui-bar-nav">
+					<span class="mui-icon-extra mui-icon-extra-sweep"></span>
+					<span class="mui-icon mui-icon-camera"></span>
+					<h1 class="mui-title">me</h1>
+				</header>	
+				<div class="mui-content">
+					<div class="mui-card-header mui-card-media" style="height:50vw;background-image: url(images/me.jpg);background-size: 100% 100%;">
+						<div class="circle"></div>
+					</div>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell"><i style="color: dodgerblue;" class="iconfont icon-xingming"></i>姓名：陶欣钰</li>
+						<li class="mui-table-view-cell"><i style="color: yellowgreen;" class="iconfont icon-xingbie"></i>性别：女</li>
+						<li class="mui-table-view-cell"><i style="color: orangered;" class="iconfont icon-nianling"></i>年龄：21</li>        
+					</ul>
+					<ul class="mui-table-view" style="margin-top: 5%;">
+						<li class="mui-table-view-cell"><i style="color: plum;" class="iconfont icon-shoujihao"></i>联系方式：13438469225</li>		       
+				        <li class="mui-table-view-cell"><i style="color: indianred;" class="iconfont icon-aihao_s"></i>爱好：羽毛球，电子竞技；特长：钢琴</li>	        
+					</ul>
+					<ul class="mui-table-view" style="margin-top: 5%;">
+						 <li class="mui-table-view-cell"><i style="color: dodgerblue;" class="iconfont icon-youxiang"></i>邮箱：13438469225@163.com</li>
+						<li class="mui-table-view-cell"><i style="color: limegreen;" class="iconfont icon-wangzhi"></i>个人网站：www.txyxin.online</li>
+				        <li class="mui-table-view-cell"><i style="color: deeppink;" class="iconfont icon-github"></i>github地址：https://github.com/txy0323</li>
+					</ul>
+				</div>
+				
+			<!--<div class="button">
+					<input type='button' class="create" value='创建扫描控件' />
+					<input type='button' class="start" value='开始扫描' />
+					<input type='button' class="cancel" value='取消扫描' />
+					<input type='button' class="open" value='开启闪光灯' />
+				</div>-->
+			</div>
+		</div>
+	</div>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+	
+	
+</body>
+</html>

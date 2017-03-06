@@ -1,0 +1,23 @@
+{
+	"index.html": {
+		"resources": [
+			"images/css3.png",
+			"images/bi1.png",
+			"images/resume.png",
+			"images/normalmusic.svg",
+			"images/bootstrap.jpg",
+			"images/ps.jpg",
+			"images/nodejs.jpeg",
+			"css/index.css",
+			"images/html5.png",
+			"images/hard.png",
+			"images/bi2.png",
+			"images/1.jpg",
+			"resources/MeghanTrainor-AllAboutThatBass.mp3",
+			"images/angularjs.png",
+			"images/js.png",
+			"js/index.js",
+			"images/mmqrcode.png"
+		]
+	}
+}
